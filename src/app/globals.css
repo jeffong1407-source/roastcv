@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #09070f;
+  --card: #110e1c;
+  --border: #1f1a30;
+  --accent: #ff4d00;
+  --accent2: #ff8c00;
+  --pink: #e8357a;
+  --purple: #9b3de8;
+  --text: #f2eaf8;
+  --muted: #7a6d8f;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: #09070f !important;
+  color: #f2eaf8;
+  font-family: 'Syne', sans-serif;
+  min-height: 100vh;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255,77,0,0.3); }
+  50% { box-shadow: 0 0 40px rgba(255,77,0,0.6); }
+}
+
+@keyframes flame {
+  0%, 100% { transform: scaleY(1) rotate(-2deg); }
+  50% { transform: scaleY(1.1) rotate(2deg); }
+}
+
+@keyframes typing {
+  0%, 60%, 100% { opacity: 0.3; }
+  30% { opacity: 1; }
+}
+
+@keyframes scoreCount {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes barFill {
+  from { width: 0; }
+  to { width: var(--target-width); }
+}
+
+.animate-fade-up { animation: fadeUp 0.6s ease both; }
+.animate-fade-in { animation: fadeIn 0.5s ease both; }
+.animate-pulse-glow { animation: pulse-glow 2s ease infinite; }
+.animate-flame { animation: flame 0.8s ease infinite; }
+.animate-score { animation: scoreCount 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+.typing-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #ff4d00;
+  animation: typing 1.2s ease infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+.score-bar {
+  height: 8px;
+  border-radius: 100px;
+  background: linear-gradient(90deg, #ff4d00, #ff8c00);
+  transition: width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fire-gradient {
+  background: linear-gradient(135deg, #ff4d00, #ff8c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.drop-zone {
+  border: 2px dashed #1f1a30;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+.drop-zone:hover, .drop-zone.drag-over {
+  border-color: #ff4d00;
+  background: rgba(255,77,0,0.04);
+}
+
+.roast-card {
+  background: #110e1c;
+  border: 1px solid #1f1a30;
+  border-radius: 16px;
+  padding: 20px;
+  animation: fadeUp 0.5s ease both;
+}
+
+.severity-fatal {
+  border-left: 3px solid #ff4d00;
+}
+.severity-major {
+  border-left: 3px solid #ff8c00;
+}
+.severity-minor {
+  border-left: 3px solid #fbbf24;
+}
